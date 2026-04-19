@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EaglerFine 12.2 Browser Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <h1>EaglerFine 12.2 <span>Browser Prototype</span></h1>
+      <div class="hint">WASD: Move • Shift: Sprint • F7: Mods • F3: Debug • F5: Camera</div>
+    </header>
+
+    <main class="layout">
+      <aside class="nav">
+        <button class="nav-btn active" data-screen="play">Play</button>
+        <button class="nav-btn" data-screen="singleplayer">Singleplayer</button>
+        <button class="nav-btn" data-screen="multiplayer">Multiplayer</button>
+        <button class="nav-btn" data-screen="mods">Mods</button>
+        <button class="nav-btn" data-screen="settings">Settings</button>
+      </aside>
+
+      <section class="screen active" id="play">
+        <h2>Browser Game Demo</h2>
+        <p>This is a browser-based playable demo. Click the game area and move with WASD.</p>
+        <div class="game-wrap">
+          <canvas id="gameCanvas" width="880" height="420" aria-label="EaglerFine browser game demo"></canvas>
+          <div id="hud" class="hud">
+            <span>FPS: <strong id="fpsValue">0</strong></span>
+            <span>Coords: <strong id="coordsValue">0, 0</strong></span>
+            <span>Camera: <strong id="cameraValue">First Person</strong></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="singleplayer">
+        <h2>Singleplayer Worlds</h2>
+        <p>Create and manage worlds with all world types and game modes.</p>
+        <div class="grid">
+          <label>World Name <input placeholder="My EaglerFine World" /></label>
+          <label>World Type
+            <select>
+              <option>Default</option>
+              <option>Superflat</option>
+              <option>Large Biomes</option>
+              <option>Amplified</option>
+              <option>Customized</option>
+            </select>
+          </label>
+          <label>Game Mode
+            <select>
+              <option>Survival</option>
+              <option>Creative</option>
+              <option>Adventure</option>
+              <option>Spectator</option>
+            </select>
+          </label>
+          <label><input type="checkbox" /> Hardcore</label>
+        </div>
+        <button class="primary">Create World (Prototype)</button>
+      </section>
+
+      <section class="screen" id="multiplayer">
+        <h2>Multiplayer Servers</h2>
+        <p>Add Eaglercraft servers and reconnect quickly.</p>
+        <div class="grid">
+          <label>Server Name <input placeholder="My Server" /></label>
+          <label>Server Address <input placeholder="play.example.net" /></label>
+        </div>
+        <button class="primary">Add Server (Prototype)</button>
+      </section>
+
+      <section class="screen" id="mods">
+        <h2>Mod Hub (F7)</h2>
+        <p>Enable, disable, and configure mods in one place.</p>
+        <ul class="mod-list">
+          <li><span>Sodium-like Renderer</span><span class="pill on">Enabled</span></li>
+          <li><span>EaglerFine Vibrant Shader</span><span class="pill on">Enabled</span></li>
+          <li><span>HUD Tweaks</span><span class="pill">Disabled</span></li>
+        </ul>
+      </section>
+
+      <section class="screen" id="settings">
+        <h2>Settings</h2>
+        <div class="grid">
+          <label>Shader Profile
+            <select>
+              <option>Performance</option>
+              <option selected>Balanced</option>
+              <option>Quality</option>
+            </select>
+          </label>
+          <label>F3 Mode
+            <select>
+              <option>Minimal</option>
+              <option selected>Standard</option>
+              <option>Advanced</option>
+            </select>
+          </label>
+          <label>F5 Cycle
+            <select>
+              <option selected>First → Third Back → Third Front</option>
+              <option>First → Third Back</option>
+            </select>
+          </label>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" aria-live="polite"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
